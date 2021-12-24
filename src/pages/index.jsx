@@ -1,15 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, Link, Typography } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import styles from '../styles/Home.module.css'
 import theme from '../styles/theme'
 import Navbar from '../components/Navbar'
+import HomePage from './HomePage'
 
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <CssBaseline enableColorScheme />
       <div>
         <Head>
           <title>{process.env.NEXT_PUBLIC_WEBSITE_NAME}</title>
@@ -19,19 +20,23 @@ export default function Home() {
 
         <main>
           <Navbar />
+          <HomePage />
         </main>
 
         <footer className={styles.footer}>
-          <a
+          <Link
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{' '}
-            <span className={styles.logo}>
-              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-            </span>
-          </a>
+            rel="noopener noreferrer">
+            <Typography>Powered by </Typography>
+            <Image
+              src="/vercel.svg"
+              alt="Vercel Logo"
+              width={72}
+              height={16}
+              sx={{ verticalAlign: 'middle' }}
+            />
+          </Link>
         </footer>
       </div>
     </ThemeProvider>
